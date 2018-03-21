@@ -1,0 +1,45 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Postman-Newman-Jenkins",
+		"_postman_id": "45b5c879-1dc2-9d23-c08b-cc818d1306ce",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Postman Automation - IQ1 Admin Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"tests[\"Response error code is 0\"] = responseBody.has(\"<errorCode>0</errorCode>\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://iq1services.fiberlink.com/auth-apis/auth/1.0/authenticate/30075346",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<authRequest>\r\n<maaS360AdminAuth>\r\n<billingID>30075346</billingID>\r\n<password>admin@123</password>\r\n<userName>30075346_rshekha7</userName>\r\n<appID>maas360</appID>\r\n<appVersion>1.0</appVersion>\r\n<platformID>3</platformID>\r\n<appAccessKey>1AF854C1-8239-453c-96E8-62F89B704F4B</appAccessKey>\r\n</maaS360AdminAuth>\r\n</authRequest>"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
